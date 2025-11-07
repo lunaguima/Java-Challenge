@@ -29,15 +29,15 @@ public class PerguntaBO {
         perguntaDAO = new PerguntaDAO();
 
         if (pergunta.getTitulo() == null || pergunta.getTitulo().trim().isEmpty()) {
-            System.out.println("Falha ao salvar pergunta: O título não pode ser vazio.");
+            System.out.println("Erro em salvar pergunta: O título não pode ser vazio.");
             return null;
         }
         if (pergunta.getDescricao() == null || pergunta.getDescricao().trim().isEmpty()) {
-            System.out.println("Falha ao salvar pergunta: A descrição não pode ser vazia.");
+            System.out.println("Erro em salvar pergunta: A descrição não pode ser vazia.");
             return null;
         }
         if (pergunta.getIdUsuario() == 0) {
-            System.out.println("Falha ao salvar: A pergunta não está vinculada a um usuário.");
+            System.out.println("Erro em salvar: A pergunta não está vinculada a um usuário.");
             return null;
         }
 
@@ -59,10 +59,9 @@ public class PerguntaBO {
         }
 
         if (pergunta.getIdUsuario() != idUsuarioLogado) {
-            System.out.println("Falha ao excluir: Usuário " + idUsuarioLogado + " não tem permissão para excluir a pergunta " + idPergunta + ".");
+            System.out.println("Falha ao excluir: O usuário " + idUsuarioLogado + " não tem permissão para excluir essa pergunta " + idPergunta + ".");
             return false;
         }
-
         return perguntaDAO.delete(idPergunta);
     }
 
@@ -70,23 +69,23 @@ public class PerguntaBO {
         perguntaDAO = new PerguntaDAO();
 
         if (pergunta.getTitulo() == null || pergunta.getTitulo().trim().isEmpty()) {
-            System.out.println("Falha ao atualizar: O título não pode estar vazio.");
+            System.out.println("Falha em atualizar: O título não pode estar vazio.");
             return null;
         }
         if (pergunta.getDescricao() == null || pergunta.getDescricao().trim().isEmpty()) {
-            System.out.println("Falha ao atualizar: A descrição não pode estar vazia.");
+            System.out.println("Falha em atualizar: A descrição não pode ser vazia.");
             return null;
         }
 
         PerguntaTO perguntaOriginal = perguntaDAO.findByCodigo(pergunta.getIdPergunta());
 
         if (perguntaOriginal == null) {
-            System.out.println("Falha ao atualizar: Pergunta com ID " + pergunta.getIdPergunta() + " não encontrada.");
+            System.out.println("Falha em atualizar: A Pergunta com o ID " + pergunta.getIdPergunta() + " não encontrada.");
             return null;
         }
 
         if (perguntaOriginal.getIdUsuario() != idUsuarioLogado) {
-            System.out.println("Falha ao atualizar: Usuário " + idUsuarioLogado + " não tem permissão para editar a pergunta " + pergunta.getIdPergunta() + ".");
+            System.out.println("Falha em atualizar: O usuário " + idUsuarioLogado + " não tem permissão para editar essa pergunta " + pergunta.getIdPergunta() + ".");
             return null;
         }
 

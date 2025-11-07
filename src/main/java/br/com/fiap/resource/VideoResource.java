@@ -53,7 +53,7 @@ public class VideoResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response save(@Valid VideoTO video, @PathParam("idUsuarioLogado") Integer idUsuarioLogado) {
 
-        // REGRA: Define o "dono" do vídeo
+
         video.setIdUsuario(idUsuarioLogado);
 
         VideoTO resultado = videoBO.save(video);

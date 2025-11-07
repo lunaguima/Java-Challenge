@@ -10,8 +10,6 @@ import java.util.ArrayList;
 
 public class PerguntaDAO {
 
-
-
     public PerguntaTO save(PerguntaTO pergunta) {
         String sql = "insert into t_ddd_pergunta(id_pergunta, id_usuario, ds_titulo, ds_descricao, dt_criacao) values (seq_pergunta.nextval, ?, ?, ?, ?)";
         try (PreparedStatement ps = ConnectionFactory.getConnection().prepareStatement(sql)) {
@@ -91,7 +89,6 @@ public class PerguntaDAO {
         return perguntas;
     }
 
-
     public PerguntaTO findByCodigo(Integer idPergunta) {
 
         String sql = "select * from t_ddd_pergunta where id_pergunta = ?";
@@ -115,7 +112,6 @@ public class PerguntaDAO {
         }
         return null;
     }
-
 
     public ArrayList<PerguntaTO> findByUsuario(Integer idUsuario) {
         ArrayList<PerguntaTO> perguntas = new ArrayList<>();

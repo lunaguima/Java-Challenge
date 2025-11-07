@@ -12,7 +12,6 @@ public class RespostaBO {
 
     private RespostaDAO respostaDAO;
 
-
     public ArrayList<RespostaTO> findAll(){
         respostaDAO = new RespostaDAO();
         return respostaDAO.findAll();
@@ -23,23 +22,21 @@ public class RespostaBO {
         return respostaDAO.findByCodigo(id);
     }
 
-
     public RespostaTO save(RespostaTO resposta) {
         respostaDAO = new RespostaDAO();
 
         if (resposta.getConteudo() == null || resposta.getConteudo().trim().isEmpty()) {
-            System.out.println("Falha ao salvar: O conteúdo da resposta não pode estar vazio.");
+            System.out.println("Falha ao salvar: O conteúdo da resposta não pode estar vazio!");
             return null;
         }
         if (resposta.getIdPergunta() == 0) {
-            System.out.println("Falha ao salvar: A resposta não está ligada a uma pergunta.");
+            System.out.println("Falha em salvar: A resposta não está ligada a uma pergunta.");
             return null;
         }
         if (resposta.getIdUsuario() == 0) {
-            System.out.println("Falha ao salvar: A resposta não tem um autor (idUsuario).");
+            System.out.println("Falha em salvar: A resposta não tem um autor.");
             return null;
         }
-
 
         resposta.setDataCriacao(LocalDate.now());
         resposta.setConteudo(resposta.getConteudo().trim());
@@ -49,19 +46,18 @@ public class RespostaBO {
         return respostaSalva;
     }
 
-
     public boolean delete(Integer idResposta, Integer idUsuarioLogado) {
         respostaDAO = new RespostaDAO();
 
         RespostaTO resposta = respostaDAO.findByCodigo(idResposta);
         if (resposta == null) {
-            System.out.println("Falha ao excluir: Resposta com ID " + idResposta + " não encontrada.");
+            System.out.println("Falha ao excluir: A Resposta com o ID " + idResposta + " não encontrada.");
             return false;
         }
 
 
         if (resposta.getIdUsuario() != idUsuarioLogado) {
-            System.out.println("Falha ao excluir: Usuário " + idUsuarioLogado + " não tem permissão para excluir a resposta " + idResposta + ".");
+            System.out.println("Falha ao excluir: O usuário " + idUsuarioLogado + " não tem permissão para excluir a resposta " + idResposta + ".");
             return false;
         }
 
@@ -73,13 +69,13 @@ public class RespostaBO {
         respostaDAO = new RespostaDAO();
 
         if (resposta.getConteudo() == null || resposta.getConteudo().trim().isEmpty()) {
-            System.out.println("Falha ao atualizar: O conteúdo não pode estar vazio.");
+            System.out.println("Falha em atualizar: O conteúdo não pode ser vazio.");
             return null;
         }
 
         RespostaTO respostaOriginal = respostaDAO.findByCodigo(resposta.getIdResposta());
         if (respostaOriginal == null) {
-            System.out.println("Falha ao atualizar: Resposta com ID " + resposta.getIdResposta() + " não encontrada.");
+            System.out.println("Falha ao atualizar: Resposta com o ID " + resposta.getIdResposta() + " não encontrada.");
             return null;
         }
 
@@ -94,7 +90,6 @@ public class RespostaBO {
         return respostaDAO.update(resposta);
     }
 
-    // Dentro de RespostaBO.java
     public ArrayList<RespostaTO> findByPerguntaId(Integer idPergunta){
         respostaDAO = new RespostaDAO();
         return respostaDAO.findByPergunta(idPergunta);

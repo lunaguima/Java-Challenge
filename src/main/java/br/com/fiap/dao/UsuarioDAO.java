@@ -2,7 +2,6 @@ package br.com.fiap.dao;
 
 import br.com.fiap.to.UsuarioTO;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -102,7 +101,6 @@ public class UsuarioDAO {
             ps.setInt(1, idUsuario);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-
                 UsuarioTO usuario = new UsuarioTO();
                 usuario.setIdUsuario(rs.getInt("id_usuario"));
                 usuario.setNome(rs.getString("nm_usuario"));
@@ -128,7 +126,6 @@ public class UsuarioDAO {
             ps.setString(1, email);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-
                 UsuarioTO usuario = new UsuarioTO();
                 usuario.setIdUsuario(rs.getInt("id_usuario"));
                 usuario.setNome(rs.getString("nm_usuario"));
@@ -154,7 +151,6 @@ public class UsuarioDAO {
             ps.setString(1, username);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-
                 UsuarioTO usuario = new UsuarioTO();
                 usuario.setIdUsuario(rs.getInt("id_usuario"));
                 usuario.setNome(rs.getString("nm_usuario"));
@@ -180,10 +176,8 @@ public class UsuarioDAO {
             ps.setString(1, login);
             ps.setString(2, login);
             ps.setString(3, senha);
-
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-
                 UsuarioTO usuario = new UsuarioTO();
                 usuario.setIdUsuario(rs.getInt("id_usuario"));
                 usuario.setNome(rs.getString("nm_usuario"));

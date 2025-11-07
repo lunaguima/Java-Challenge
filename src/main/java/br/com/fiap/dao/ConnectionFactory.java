@@ -36,8 +36,6 @@ public class ConnectionFactory {
 
             connection = DriverManager.getConnection(url, user, password);
 
-
-
         } catch (SQLException e) {
             System.out.println("Erro de SQL: " + e.getMessage());
         } catch (ClassNotFoundException e) {

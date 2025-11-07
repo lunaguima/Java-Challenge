@@ -19,7 +19,6 @@ public class UsuarioBO {
         return usuarioDAO.findByCodigo(id);
     }
 
-
     public UsuarioTO save(UsuarioTO usuario){
         usuarioDAO = new UsuarioDAO();
 

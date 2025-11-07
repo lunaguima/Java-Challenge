@@ -41,7 +41,7 @@ public class UsuarioResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response save(@Valid UsuarioTO usuario) {
-        // Chama o método de cadastro do BO
+
         UsuarioTO resultado = usuarioBO.save(usuario);
         Response.ResponseBuilder response = null;
 

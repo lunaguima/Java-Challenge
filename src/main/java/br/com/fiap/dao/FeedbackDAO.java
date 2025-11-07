@@ -12,7 +12,6 @@ public class FeedbackDAO {
     public FeedbackTO save(FeedbackTO feedback) {
         String sql = "insert into t_ddd_feedback (id_feedback, id_usuario, ds_comentario, ds_avaliacao, dt_criacao) values (seq_feedback.nextval, ?, ?, ?, ?)";
 
-
         try (PreparedStatement ps = ConnectionFactory.getConnection().prepareStatement(sql)) {
             ps.setInt(1, feedback.getIdUsuario());
             ps.setString(2, feedback.getComentario());

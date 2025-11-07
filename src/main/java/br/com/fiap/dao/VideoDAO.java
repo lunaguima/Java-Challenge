@@ -83,7 +83,6 @@ public class VideoDAO {
         {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-
                 VideoTO video = new VideoTO();
                 video.setIdVideo(rs.getInt("id_video"));
                 video.setIdUsuario(rs.getInt("id_usuario"));
@@ -112,7 +111,6 @@ public class VideoDAO {
             ps.setInt(1, idVideo);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-
                 VideoTO video = new VideoTO();
                 video.setIdVideo(rs.getInt("id_video"));
                 video.setIdUsuario(rs.getInt("id_usuario"));

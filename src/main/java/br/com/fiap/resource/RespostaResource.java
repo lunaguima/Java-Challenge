@@ -46,13 +46,11 @@ public class RespostaResource {
         return response.build();
     }
 
-
     @POST
     @Path("/usuario/{idUsuarioLogado}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response save(@Valid RespostaTO resposta, @PathParam("idUsuarioLogado") Integer idUsuarioLogado) {
-
 
         resposta.setIdUsuario(idUsuarioLogado);
 
@@ -69,18 +67,15 @@ public class RespostaResource {
         return response.build();
     }
 
-
     @DELETE
     @Path("/{idResposta}/usuario/{idUsuarioLogado}")
     public Response delete(@PathParam("idResposta") Integer idResposta, @PathParam("idUsuarioLogado") Integer idUsuarioLogado) {
 
         Response.ResponseBuilder response = null;
 
-
         if (respostaBO.delete(idResposta, idUsuarioLogado)) {
             response = Response.status(204); // 204 - NO CONTENT
         } else {
-
             response = Response.status(404); // 404 - NOT FOUND
         }
         return response.build();
@@ -108,7 +103,7 @@ public class RespostaResource {
     }
 
     @GET
-    @Path("/pergunta/{idPergunta}") // <-- NOVO ENDPOINT
+    @Path("/pergunta/{idPergunta}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response findByPerguntaId(@PathParam("idPergunta") Integer idPergunta){
         ArrayList<RespostaTO> resultado = respostaBO.findByPerguntaId(idPergunta);

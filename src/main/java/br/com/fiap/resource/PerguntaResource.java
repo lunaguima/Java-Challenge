@@ -13,7 +13,6 @@ import java.util.ArrayList;
 @Path("/java/pergunta")
 public class PerguntaResource {
 
-
     private PerguntaBO perguntaBO = new PerguntaBO();
 
     @GET
@@ -76,11 +75,10 @@ public class PerguntaResource {
 
         Response.ResponseBuilder response = null;
 
-
         if (perguntaBO.delete(idPergunta, idUsuarioLogado)) {
             response = Response.status(204); // 204 - NO CONTENT
         } else {
-            // Se 'false', ou não achou (404) ou não é o dono (403/404)
+
             response = Response.status(404); // 404 - NOT FOUND
         }
         return response.build();
