@@ -87,11 +87,11 @@ public class UsuarioResource {
     }
 
     @DELETE
-    @Path("/{id}")
-    public Response delete(@PathParam("id") Integer id) {
+    @Path("/{idUsuarioLogado}")
+    public Response delete(@PathParam("idUsuarioLogado") Integer idUsuarioLogado) {
         Response.ResponseBuilder response = null;
 
-        if (usuarioBO.delete(id)) {
+        if (usuarioBO.delete(idUsuarioLogado)) {
             response = Response.status(204); // 204 - NO CONTENT
         } else {
             response = Response.status(404); // 404 - NOT FOUND
@@ -100,10 +100,10 @@ public class UsuarioResource {
     }
 
     @PUT
-    @Path("/{id}")
+    @Path("/{idUsuarioLogado}")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response update(@Valid UsuarioTO usuario, @PathParam("id") Integer id) {
-        usuario.setIdUsuario(id);
+    public Response update(@Valid UsuarioTO usuario, @PathParam("idUsuarioLogado") Integer idUsuarioLogado) {
+        usuario.setIdUsuario(idUsuarioLogado);
 
         UsuarioTO resultado = usuarioBO.update(usuario);
         Response.ResponseBuilder response = null;
