@@ -98,7 +98,7 @@ public class VideoResource {
         Response.ResponseBuilder response = null;
 
         if (resultado != null) {
-            response = Response.created(null); // 201 - CREATED
+            response = Response.ok(); // 200 - Ok
         } else {
 
             response = Response.status(400); // 400 - BAD REQUEST

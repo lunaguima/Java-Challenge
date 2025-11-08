@@ -54,7 +54,7 @@ public class PerguntaBO {
 
         PerguntaTO pergunta = perguntaDAO.findByCodigo(idPergunta);
         if (pergunta == null) {
-            System.out.println("Falha ao excluir: Pergunta com ID " + idPergunta + " não encontrada.");
+            System.out.println("Falha ao excluir: A Pergunta com o ID " + idPergunta + " não foi encontrada.");
             return false;
         }
 

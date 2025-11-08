@@ -1,16 +1,32 @@
 package br.com.fiap.to;
 
+import jakarta.validation.constraints.*;
+
 import java.time.LocalDate;
 
 public class VideoTO {
 
     private int idVideo;
+
+    @PositiveOrZero
     private int idUsuario;
+
+    @NotBlank
     private String titulo;
+
+    @NotBlank(message = "A descrição não pode estar vazia.")
     private String descricao;
+
+    @NotBlank(message = "O link do vídeo é obrigatório.")
     private String linkVideo;
+
+    @NotBlank(message = "A duração é obrigatória.")
     private String duracao;
+
+    @NotBlank(message = "A categoria não pode estar vazia.")
     private String categoria;
+
+    @PastOrPresent(message = "A data do vídeo deve ser do presente ou do passado.")
     private LocalDate dataVideo;
 
     public VideoTO() {

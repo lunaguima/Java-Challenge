@@ -17,7 +17,7 @@ public class VideoBO {
 
     public ArrayList<VideoTO> findByUsuarioId(Integer idUsuario) {
         videoDAO = new VideoDAO();
-        // (Método que criamos no VideoDAO)
+
         return videoDAO.findByUsuario(idUsuario);
     }
 
@@ -31,15 +31,15 @@ public class VideoBO {
         videoDAO = new VideoDAO();
 
         if (video.getTitulo() == null || video.getTitulo().trim().isEmpty()) {
-            System.out.println("Falha ao salvar vídeo: O título não pode ser vazio.");
+            System.out.println("Erro em salvar vídeo: O título não pode ser vazio.");
             return null;
         }
         if (video.getLinkVideo() == null || video.getLinkVideo().trim().isEmpty()) {
-            System.out.println("Falha ao salvar vídeo: O link do vídeo não pode ser vazio.");
+            System.out.println("Erro em salvar vídeo: O link do vídeo não pode ser vazio.");
             return null;
         }
         if (video.getIdUsuario() == 0) {
-            System.out.println("Falha ao salvar: O vídeo não está vinculado a um usuário.");
+            System.out.println("Erro em salvar: O vídeo não está vinculado a um usuário.");
             return null;
         }
 

@@ -29,7 +29,7 @@ public class FeedbackBO {
         feedbackDAO = new FeedbackDAO();
 
         if (feedback.getComentario() == null || feedback.getComentario().trim().isEmpty()) {
-            System.out.println("Erro ao salvar feedback: O comentário não pode ser vazio.");
+            System.out.println("Erro ao salvar feedback: O comentário não pode estar vazio.");
             return null;
         }
 
@@ -83,7 +83,7 @@ public class FeedbackBO {
         }
 
         if (feedbackOriginal.getIdUsuario() != idUsuarioLogado) {
-            System.out.println("Falha ao atualizar: Usuário " + idUsuarioLogado + " não tem permissão para editar o feedback " + feedback.getIdFeedback() + ".");
+            System.out.println("Falha ao atualizar: O usuário " + idUsuarioLogado + " não tem permissão para editar o feedback " + feedback.getIdFeedback() + ".");
             return null;
         }
 

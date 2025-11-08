@@ -2,13 +2,29 @@ package br.com.fiap.to;
 
 import java.time.LocalDate;
 
+import jakarta.validation.constraints.*;
+
 public class NotificacaoTO {
+
+    @PositiveOrZero
     private int idNotificacao;
+
+    @PositiveOrZero
     private int idUsuario;
+
+    @PositiveOrZero
     private int idResposta;
+
+    @NotBlank
     private String mensagem;
+
+    @PositiveOrZero
     private int lida;
+
+    @NotBlank
     private String link;
+
+    @PastOrPresent
     private LocalDate dataCriacao;
 
     public NotificacaoTO() {

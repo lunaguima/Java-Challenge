@@ -26,15 +26,15 @@ public class RespostaBO {
         respostaDAO = new RespostaDAO();
 
         if (resposta.getConteudo() == null || resposta.getConteudo().trim().isEmpty()) {
-            System.out.println("Falha ao salvar: O conteúdo da resposta não pode estar vazio!");
+            System.out.println("Erro: O conteúdo da resposta não pode ser vazio!");
             return null;
         }
         if (resposta.getIdPergunta() == 0) {
-            System.out.println("Falha em salvar: A resposta não está ligada a uma pergunta.");
+            System.out.println("Erro: A resposta não está ligada a uma pergunta.");
             return null;
         }
         if (resposta.getIdUsuario() == 0) {
-            System.out.println("Falha em salvar: A resposta não tem um autor.");
+            System.out.println("Erro: A resposta não tem um autor.");
             return null;
         }
 
@@ -51,7 +51,7 @@ public class RespostaBO {
 
         RespostaTO resposta = respostaDAO.findByCodigo(idResposta);
         if (resposta == null) {
-            System.out.println("Falha ao excluir: A Resposta com o ID " + idResposta + " não encontrada.");
+            System.out.println("Falha ao excluir: A Resposta com o ID " + idResposta + " não foi encontrada.");
             return false;
         }
 

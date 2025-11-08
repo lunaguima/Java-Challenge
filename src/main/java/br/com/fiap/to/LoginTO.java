@@ -1,7 +1,13 @@
 package br.com.fiap.to;
 
+import jakarta.validation.constraints.*;
+
 public class LoginTO {
+
+    @NotBlank
     private String login;
+
+    @NotBlank
     private String senha;
 
     public LoginTO() {

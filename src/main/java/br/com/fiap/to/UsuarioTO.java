@@ -1,12 +1,25 @@
 package br.com.fiap.to;
 
+import jakarta.validation.constraints.*;
+
 public class UsuarioTO {
 
+    @PositiveOrZero
     private int idUsuario;
+
+    @NotBlank
     private String nome;
+
+    @NotBlank
     private String username;
+
+    @NotBlank
     private String email;
+
+    @NotBlank
     private String senha;
+
+    @PositiveOrZero
     private int idade;
 
     public UsuarioTO() {}

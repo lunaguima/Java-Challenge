@@ -2,11 +2,23 @@ package br.com.fiap.to;
 
 import java.time.LocalDate;
 
+import jakarta.validation.constraints.*;
+
 public class FeedbackTO {
+
+    @PositiveOrZero
     private int idFeedback;
+
+    @PositiveOrZero
     private int idUsuario;
+
+    @NotBlank
     private String comentario;
+
+    @PositiveOrZero
     private int avaliacao;
+
+    @PastOrPresent
     private LocalDate dataCriacao;
 
     public FeedbackTO() {

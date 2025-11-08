@@ -2,11 +2,23 @@ package br.com.fiap.to;
 
 import java.time.LocalDate;
 
+import jakarta.validation.constraints.*;
+
 public class PerguntaTO {
+
+    @PositiveOrZero
     private int idPergunta;
+
+    @PositiveOrZero
     private int idUsuario;
+
+    @NotBlank
     private String titulo;
+
+    @NotBlank
     private String descricao;
+
+    @PastOrPresent
     private LocalDate dataCriacao;
 
     public PerguntaTO(){

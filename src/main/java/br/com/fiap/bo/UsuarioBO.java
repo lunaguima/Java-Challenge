@@ -64,8 +64,6 @@ public class UsuarioBO {
             System.out.println("Erro: Esse username já está em uso.");
             return null;
         }
-
-
         return usuarioDAO.save(usuario);
     }
 
@@ -116,13 +114,13 @@ public class UsuarioBO {
 
         UsuarioTO usuarioPorEmail = usuarioDAO.findByEmail(usuario.getEmail());
         if (usuarioPorEmail != null && usuarioPorEmail.getIdUsuario() != usuario.getIdUsuario()) {
-            System.out.println("BO: Email já em uso por outro usuário.");
+            System.out.println("Erro: O email já está em uso por outro usuário.");
             return null;
         }
 
         UsuarioTO usuarioPorUsername = usuarioDAO.findByUsername(usuario.getUsername());
         if (usuarioPorUsername != null && usuarioPorUsername.getIdUsuario() != usuario.getIdUsuario()) {
-            System.out.println("BO: Username já em uso por outro usuário.");
+            System.out.println("Erro: O username já está em uso por outro usuário.");
             return null;
         }
         return usuarioDAO.update(usuario);
@@ -145,7 +143,7 @@ public class UsuarioBO {
         UsuarioTO usuario = usuarioDAO.findByLogin(login, senha);
 
         if (usuario == null) {
-            System.out.println("BO: Login ou senha inválidos.");
+            System.out.println("Erro: O login ou a senha estão inválidos.");
             return null;
         }
         return usuario;
