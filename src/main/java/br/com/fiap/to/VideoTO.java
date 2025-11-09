@@ -14,19 +14,19 @@ public class VideoTO {
     @NotBlank
     private String titulo;
 
-    @NotBlank(message = "A descrição não pode estar vazia.")
+    @NotBlank
     private String descricao;
 
-    @NotBlank(message = "O link do vídeo é obrigatório.")
+    @NotBlank
     private String linkVideo;
 
-    @NotBlank(message = "A duração é obrigatória.")
+    @NotBlank
     private String duracao;
 
-    @NotBlank(message = "A categoria não pode estar vazia.")
+    @NotBlank
     private String categoria;
 
-    @PastOrPresent(message = "A data do vídeo deve ser do presente ou do passado.")
+    @PastOrPresent
     private LocalDate dataVideo;
 
     public VideoTO() {
